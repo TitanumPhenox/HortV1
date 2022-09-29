@@ -187,9 +187,9 @@ opcontrol() {
     while (true) {
         arcadeDrive();
 
-		mogo_control_manual();
-		tilter_control_manuel();
-		lift_control_manuel();
+		//mogo_control_manual();
+		//tilter_control_manuel();
+		//lift_control_manuel();
 
 		pros::delay(DELAY_TIME);
 	}
