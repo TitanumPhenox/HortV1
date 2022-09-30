@@ -114,8 +114,8 @@ arcade_tank_toggle() {
 }
 
 void arcadeDrive() {
-    int power = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER,pros::E_CONTROLLER_ANALOG_LEFT_X);
-    int turn = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_LEFT_Y);
+    int power = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER,pros::E_CONTROLLER_ANALOG_LEFT_Y);
+    int turn = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_LEFT_X);
     int left = power + turn;
     int right = power - turn;
 
