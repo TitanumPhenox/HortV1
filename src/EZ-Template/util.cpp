@@ -73,8 +73,8 @@ set_tank(int input_l, int input_r) {
 void
 set_drive_brake(pros::motor_brake_mode_e_t input) {
 	for (int i=0;i<MOTORS_PER_SIDE;i++) {
-		pros::c::motor_set_brake_mode(abs(L_CHASSIS_PORTS[i]), input);
-		pros::c::motor_set_brake_mode(abs(R_CHASSIS_PORTS[i]), input);
+		pros::c::motor_set_brake_mode(abs(L_CHASSIS_PORTS[0]), input);
+		pros::c::motor_set_brake_mode(abs(R_CHASSIS_PORTS[0]), input);
 	}
 }
 

@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include "intake.h"
 /**
  * Disables all tasks.
  *
@@ -59,7 +59,7 @@ auto_select(bool is_auton) {
 			break;
 		case 2: // Auto 3
 			pros::lcd::set_text(2, "Example Auton 2");
-			if (is_auton) skills_auton();
+			if (is_auton) auto_10();
 			break;
 
 		default:
@@ -176,13 +176,14 @@ autonomous() {
  * operator control task will be stopped. Re-enabling the robot will restart the
  * task, not resume it from where it left off.
  */
+
 void
 opcontrol() {
 	//drive_pid.suspend();
 	//reset_drive_sensor();
 	set_drive_brake(MOTOR_BRAKE_HOLD); // This is preference to what you like to drive on
-    pros::c::motor_set_brake_mode(3,MOTOR_BRAKE_HOLD);
-    pros::c::motor_set_brake_mode(13,MOTOR_BRAKE_HOLD);
+    //pros::c::motor_set_brake_mode(3,MOTOR_BRAKE_HOLD);
+    //pros::c::motor_set_brake_mode(13,MOTOR_BRAKE_HOLD);
 
     while (true) {
         arcadeDrive();
@@ -190,7 +191,7 @@ opcontrol() {
 		//mogo_control_manual();
 		//tilter_control_manuel();
 		//lift_control_manuel();
-
+        manual_take();
 		pros::delay(DELAY_TIME);
 	}
 }

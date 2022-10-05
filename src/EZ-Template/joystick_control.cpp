@@ -114,8 +114,8 @@ arcade_tank_toggle() {
 }
 
 void arcadeDrive() {
-    int power = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER,pros::E_CONTROLLER_ANALOG_LEFT_Y);
-    int turn = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_LEFT_X);
+    int power = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER,pros::E_CONTROLLER_ANALOG_LEFT_X);
+    int turn = pros::c::controller_get_analog(pros::E_CONTROLLER_MASTER, pros::E_CONTROLLER_ANALOG_LEFT_Y);
     int left = power + turn;
     int right = power - turn;
 
@@ -158,3 +158,5 @@ chassis_joystick_control() {
 		set_tank((0-left_sensor())*ACTIVE_BRAKE_KP, (0-right_sensor())*ACTIVE_BRAKE_KP);
 	}
 }
+
+
