@@ -3,14 +3,14 @@
 //
 
 #include "../include/Intake.h"
-#inclide "main.h"
+#include "main.h"
 
 
-pros::Motor take(1, MOTOR_GEARSET_8, false, MOTOR_ENCODER_DEGREES);
+pros::Motor take(1, MOTOR_GEARSET_6, false, MOTOR_ENCODER_DEGREES);
 
 void set_take(int input)  { take = input; }
 
-void manual_take{
+vomanual_take(){
         if (master.get_digital(DIGITAL_L1)) {
             set_take(127);
         } else if (master.get_digital(DIGITAL_L2)) {
