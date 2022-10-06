@@ -6,11 +6,15 @@
 #include "main.h"
 
 
-pros::Motor take(1, MOTOR_GEARSET_6, false, MOTOR_ENCODER_DEGREES);
+pros::Motor take1(18, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES);
+//pros::Motor take2(19, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES);
 
-void set_take(int input)  { take = input; }
+void set_take(int input)  {
+    take1 = input;
+   // take2 = input;
+}
 
-vomanual_take(){
+void manual_take(){
         if (master.get_digital(DIGITAL_L1)) {
             set_take(127);
         } else if (master.get_digital(DIGITAL_L2)) {

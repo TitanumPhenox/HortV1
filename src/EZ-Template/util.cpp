@@ -42,8 +42,8 @@ pros::Imu gyro(GYRO_PORT);
 void
 chassis_motor_init() {
 	for(int i=0;i<MOTORS_PER_SIDE;i++) {
-		pros::Motor a(abs(L_CHASSIS_PORTS[i]), MOTOR_GEARSET_36, is_reversed(L_CHASSIS_PORTS[i]), MOTOR_ENCODER_COUNTS);
-		pros::Motor b(abs(R_CHASSIS_PORTS[i]), MOTOR_GEARSET_36, is_reversed(R_CHASSIS_PORTS[i]), MOTOR_ENCODER_COUNTS);
+		pros::Motor a(abs(L_CHASSIS_PORTS[i]), MOTOR_GEARSET_18, is_reversed(L_CHASSIS_PORTS[i]), MOTOR_ENCODER_COUNTS);
+		pros::Motor b(abs(R_CHASSIS_PORTS[i]), MOTOR_GEARSET_18, is_reversed(R_CHASSIS_PORTS[i]), MOTOR_ENCODER_COUNTS);
 	}
 }
 
