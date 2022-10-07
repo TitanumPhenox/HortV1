@@ -6,7 +6,7 @@
 #include "main.h"
 
 
-pros::Motor take1(18, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES);
+pros::Motor take1(20, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES);
 //pros::Motor take2(19, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES);
 
 void set_take(int input)  {
