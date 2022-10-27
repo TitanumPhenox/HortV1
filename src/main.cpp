@@ -1,12 +1,12 @@
 #include "main.h"
 #include "intake.h"
+#include "shotboy.h"
 /**
  * Disables all tasks.
  *
  * This runs during disabled and initialize to turn off all user created tasks.
  */
-void
-disable_all_tasks() {
+void disable_all_tasks() {
 	drive_pid.suspend();
 }
 
@@ -188,10 +188,13 @@ opcontrol() {
     while (true) {
         arcadeDrive();
 
-		//mogo_control_manual();
+		//mogo_control();
 		//tilter_control_manuel();
 		//lift_control_manuel();
         manual_take();
+        catapult_control();
+        catapult_control_manuel();
 		pros::delay(DELAY_TIME);
+
 	}
 }
