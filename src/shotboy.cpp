@@ -16,6 +16,8 @@ void cancel_catapult_motors(){
     pros::delay(10);
 }
 
+
+
 void catapult_control() {
     if (master.get_digital(DIGITAL_R1)) {
         set_catapult(200);
@@ -32,13 +34,11 @@ void catapult_control() {
     }
 
 }
-void catapult_control_manuel(){
-    if (master.get_digital(DIGITAL_UP)){
+void catapult_control_manual(){
+    if (master.get_digital(DIGITAL_R1)){
         set_catapult(200);
     }
-    else if(master.get_digital(DIGITAL_DOWN)){
-        set_catapult(-200);
-    }
+
     else {
         cancel_catapult_motors();
     }

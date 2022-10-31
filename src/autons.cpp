@@ -1,5 +1,7 @@
 #include "main.h"
-
+#include "shotboy.h"
+#include "Intake.h"
+#include "pneumatics.h"
 
 const int DRIVE_SPEED = 110;
 const int TURN_SPEED  = 90;
@@ -279,4 +281,8 @@ auto_10() {
 l_motor.move(1000);
 l2_motor.move(1000);
 pros::delay(30000);
+
 }
+
+
+

@@ -1,6 +1,7 @@
 #include "main.h"
 #include "intake.h"
 #include "shotboy.h"
+#include "pneumatics.h"
 /**
  * Disables all tasks.
  *
@@ -187,13 +188,14 @@ opcontrol() {
 
     while (true) {
         arcadeDrive();
-
+        pneumatic_press();
 		//mogo_control();
 		//tilter_control_manuel();
 		//lift_control_manuel();
         manual_take();
-        catapult_control();
-        catapult_control_manuel();
+        //catapult_control();
+        catapult_control_manual();
+
 		pros::delay(DELAY_TIME);
 
 	}
