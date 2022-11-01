@@ -4,4 +4,6 @@
 #include "main.h"
 #pragma once
 void pneumatic_press();
+void pneumatic_drop();
+
 

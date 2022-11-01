@@ -281,6 +281,10 @@ auto_10() {
 l_motor.move(1000);
 l2_motor.move(1000);
 pros::delay(30000);
+pneumatic_drop();
+
+}
+void preload_shot(){
 
 }
 
