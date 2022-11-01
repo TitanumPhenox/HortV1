@@ -9,11 +9,13 @@
 pros::ADIDigitalOut pneumatic1 (PNEUMATICS_PORT);
 
 void pneumatic_press(){
-    if (master.get_digital(DIGITAL_A)){
+    if (master.get_digital(DIGITAL_Y)){
         pneumatic1.set_value(true);
 
     }
-    else{
+
+
+    else {
         pros::delay(DELAY_TIME);
 
     }
