@@ -9,20 +9,20 @@
 pros::Motor take1(9, MOTOR_GEARSET_6, false, MOTOR_ENCODER_DEGREES);
 //pros::Motor take2(3, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES);
 
-void set_take1(int input)  {
+void set_take(int input)  {
     take1 = input;
 }
 
 
 void manual_take(){
         if (master.get_digital(DIGITAL_L1)) {
-            set_take1(600);
+            set_take(600);
             pros::delay(10);
         } else if (master.get_digital(DIGITAL_L2)) {
-            set_take1(-600);
+            set_take(-600);
             pros::delay(10);
         } else {
-            set_take1(0);
+            set_take(0);
             pros::delay(DELAY_TIME);
         }
 }

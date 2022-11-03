@@ -61,7 +61,7 @@ auto_select(bool is_auton) {
 			break;
 		case 2: // Auto 3
 			pros::lcd::set_text(2, "Example Auton 2");
-			if (is_auton) auto_10();
+			if (is_auton) roller_change();
 			break;
 
 		default:

@@ -8,3 +8,4 @@
 void manual_take();
 void set_take1(int input);
 void set_take2(int input);
+void set_take(int input);

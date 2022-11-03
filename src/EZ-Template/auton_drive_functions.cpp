@@ -171,7 +171,7 @@ int active_drive_type = drive;
 bool heading_on = false;
 float l_target_encoder, r_target_encoder;
 float l_start, r_start;
-int max_speed = 0;
+int max_speed = -55;
 float gyro_target = 0;
 // Slew variables
 int l_x_intercept, r_x_intercept;

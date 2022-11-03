@@ -16,3 +16,4 @@ void auto_10();
 void test_auton();
 
 void solo_awp();
+void roller_change();

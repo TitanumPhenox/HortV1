@@ -2,6 +2,7 @@
 #include "shotboy.h"
 #include "Intake.h"
 #include "pneumatics.h"
+#include "rollboy.h"
 
 const int DRIVE_SPEED = 110;
 const int TURN_SPEED  = 90;
@@ -284,7 +285,27 @@ pros::delay(30000);
 pneumatic_drop();
 
 }
-void preload_shot(){
+void roller_change() {
+    set_motors_drive(1000*1000);//goes forward
+    pros::delay(250);
+    /*
+    r_motor.move(1000); //turns right
+    r2_motor.move(1000); //turns right
+    pros::delay(400);
+    set_motors_drive(1000); //goes forward
+    pros::delay(100);
+    l_motor.move(1000);  //turns left to get roller
+    l2_motor.move(1000);
+    pros::delay(400);
+    roll_son(200); //motor spins roller to the color of our side
+    pros::delay(100);
+    set_motors_drive(400); //goes forward after doing roller
+    pros::delay(100);
+    set_motors_drive(-200); // gets backed up a little bit
+    pros::delay(200);
+    set_take(600); //intake runs
+    pros::delay(4000);
+     */
 
 }
 
