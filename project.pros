@@ -1,7 +1,7 @@
 {
     "py/object": "pros.conductor.project.Project",
     "py/state": {
-        "project_name": "Redo_hort",
+        "project_name": "HortV1",
         "target": "v5",
         "templates": {
             "kernel": {
@@ -308,7 +308,7 @@
             }
         },
         "upload_options": {
-         "description": ":)",
+         "description": "Competition code for the 2022 - 2023 game. ",
         "slot": 1
 
         }

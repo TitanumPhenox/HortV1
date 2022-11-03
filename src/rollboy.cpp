@@ -5,7 +5,7 @@
 #include "../include/rollboy.h"
 
 
-pros::Motor rollboy(20, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
+pros::Motor rollboy(11, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
 
 void roll_son(int input)  {
     rollboy = input;
@@ -15,7 +15,7 @@ void stop_the_rollie_boy(){
 }
 
 void rollboy_manuel(){
-    if(master.get_digital(DIGITAL_UP))
+    if(master.get_digital(DIGITAL_A))
     {
         roll_son(200);
     }

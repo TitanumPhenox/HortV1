@@ -55,6 +55,7 @@ set_left_chassis(int left) {
 	}
 }
 
+
 void
 set_right_chassis(int right) {
 	for (int i=0;i<MOTORS_PER_SIDE;i++) {

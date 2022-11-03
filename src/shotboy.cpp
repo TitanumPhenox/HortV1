@@ -6,8 +6,8 @@
 #include "main.h"
 
 
-pros::Motor catapult1(5, MOTOR_GEARSET_36, true, MOTOR_ENCODER_DEGREES);
-pros::Motor catapult2(6, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
+pros::Motor catapult1(20, MOTOR_GEARSET_36, true, MOTOR_ENCODER_DEGREES);
+pros::Motor catapult2(5, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
 int  get_catapult1()     { return catapult1.get_position(); }
 int  get_catapult2()     {return catapult2.get_position();  }
 void set_catapult(int input)  { catapult2 = input; catapult1 = input;}
@@ -39,6 +39,10 @@ void catapult_control_manual(){
         set_catapult(200);
     }
 
+    else if (master.get_digital(DIGITAL_R2)){
+        set_catapult(-200);
+
+    }
     else {
         cancel_catapult_motors();
     }
