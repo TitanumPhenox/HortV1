@@ -33,7 +33,7 @@ void reset_turn_i_constants();
 
 void reset_swing_constants();
 
-
+void gyro_turning(float left_range, float right_range, bool negative, bool direction);
 void drive_pid_task(void*);
 extern pros::Task drive_pid;
 
@@ -53,3 +53,4 @@ void set_motors_right(int voltage);
 void mogo_auton();
 void tilter_auton();
 void skills_auton();
+

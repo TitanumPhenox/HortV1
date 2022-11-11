@@ -16,10 +16,10 @@ void set_take(int input)  {
 
 void manual_take(){
         if (master.get_digital(DIGITAL_L1)) {
-            set_take(600);
+            set_take(400);
             pros::delay(10);
         } else if (master.get_digital(DIGITAL_L2)) {
-            set_take(-600);
+            set_take(-400);
             pros::delay(10);
         } else {
             set_take(0);

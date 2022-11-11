@@ -3,6 +3,7 @@
 #include "shotboy.h"
 #include "pneumatics.h"
 #include "rollboy.h"
+#include "auton_voids.h"
 /**
  * Disables all tasks.
  *
@@ -17,6 +18,7 @@ tare_sensors() {
 	zero_mogo();
 	zero_tilter();
 	zero_lift();
+    tare_gyro();
 }
 
 
@@ -38,7 +40,7 @@ on_center_button() {
 	}
 }
 
-const int num_of_pages = 3;
+const int num_of_pages = 9;
 int current_page = 0;
 
 void
@@ -50,19 +52,23 @@ auto_select(bool is_auton) {
 
 	switch (current_page) {
 		case 0: // Auto 1
-			pros::lcd::set_text(2, "Mogo Auton");
-			pros::lcd::set_text(3, "Move forward and collect mobile goal");
+			pros::lcd::set_text(2, "Red roller auton");
+			pros::lcd::set_text(3, "spin roller to red");
 			pros::lcd::set_text(4, "");
-			if (is_auton) mogo_auton(); //solo_awp();
+			if (is_auton) red_on_roller(); //solo_awp();
 			break;
 		case 1: // Auto 2
-			pros::lcd::set_text(2, "Claw Auton");
-			if (is_auton) tilter_auton(); //auto_3();
+			pros::lcd::set_text(2, "roller change for blue (touching)");
+			if (is_auton) blue_on_roller(); //auto_3();
 			break;
 		case 2: // Auto 3
-			pros::lcd::set_text(2, "Example Auton 2");
-			if (is_auton) roller_change();
+			pros::lcd::set_text(2, "roller change for red");
+			if (is_auton) roller_change_red();
 			break;
+        case 3: // Auto 3
+            pros::lcd::set_text(2, "absolute drive testing");
+            if (is_auton) test_absolute_drive();
+            break;
 
 		default:
 			break;
@@ -110,6 +116,9 @@ initialize() {
 
 	chassis_motor_init();
 	tare_sensors();
+    pneumatic_values(true);
+    pros::delay(10);
+
 }
 
 
@@ -155,10 +164,12 @@ competition_initialize() {
  */
 void
 autonomous() {
-    //tare_gyro();
+    tare_gyro();
     //reset_drive_sensor();
-    set_drive_brake(MOTOR_BRAKE_BRAKE);
-    //drive_pid.resume();
+    set_drive_brake(MOTOR_BRAKE_HOLD); // This is preference to what you like to drive on
+    pros::c::motor_set_brake_mode(11,MOTOR_BRAKE_HOLD);
+    pros::c::motor_set_brake_mode(20,MOTOR_BRAKE_HOLD);
+    pros::c::motor_set_brake_mode(5,MOTOR_BRAKE_HOLD);
 
     auto_select(true);
 }

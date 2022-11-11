@@ -5,5 +5,5 @@
 #pragma once
 void pneumatic_press();
 void pneumatic_drop();
-
+void pneumatic_values(int input);
 

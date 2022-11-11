@@ -7,8 +7,8 @@
 
 pros::Motor rollboy(11, MOTOR_GEARSET_36, false, MOTOR_ENCODER_DEGREES);
 
-void roll_son(int input)  {
-    rollboy = input;
+void roll_son(int voltage)  {
+    rollboy = voltage;
 }
 void stop_the_rollie_boy(){
     roll_son(0);
@@ -17,9 +17,10 @@ void stop_the_rollie_boy(){
 void rollboy_manuel(){
     if(master.get_digital(DIGITAL_A))
     {
-        roll_son(200);
+        roll_son(-200);
     }
-    else {
+    else
+    {
         stop_the_rollie_boy();
 
     }

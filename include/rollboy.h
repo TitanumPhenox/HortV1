@@ -4,6 +4,6 @@
 #include "main.h"
 #pragma once
 
-void roll_son(int input);
+void roll_son(int voltage);
 void rollboy_manuel();
 void stop_the_rollie_boy();

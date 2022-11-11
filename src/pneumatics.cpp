@@ -10,7 +10,7 @@ pros::ADIDigitalOut pneumatic1 (PNEUMATICS_PORT);
 
 void pneumatic_press(){
     if (master.get_digital(DIGITAL_RIGHT)){
-        pneumatic1.set_value(true);
+        pneumatic1.set_value(false);
 
     }
 
@@ -20,9 +20,13 @@ void pneumatic_press(){
 
     }
 }
-void pneumatic_drop(){
-    pneumatic1.set_value(true);
+void pneumatic_drop() {
+    pneumatic1.set_value(false);
     pros::delay(DELAY_TIME);
 
 
 }
+void pneumatic_values(int input){
+    pneumatic1.set_value(input);
+}
+

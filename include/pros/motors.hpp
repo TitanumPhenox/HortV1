@@ -119,7 +119,7 @@ class Motor {
 	 * \return 1 if the operation was successful or PROS_ERR if the operation
 	 * failed, setting errno.
 	 */
-	virtual std::int32_t move_absolute(const double position, const std::int32_t velocity) const;
+	virtual std::int32_t move_absolute(const double position, const std::int32_t voltage) const;
 
 	/**
 	 * Sets the relative target position for the motor to move to.

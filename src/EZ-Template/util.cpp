@@ -32,18 +32,18 @@ bool is_reversed(int input) {
 	return false;
 }
 
-pros::Motor l_motor(abs(L_CHASSIS_PORTS[0]), MOTOR_GEARSET_18, is_reversed(L_CHASSIS_PORTS[0]), MOTOR_ENCODER_COUNTS);
-pros::Motor r_motor(abs(R_CHASSIS_PORTS[0]), MOTOR_GEARSET_18, is_reversed(R_CHASSIS_PORTS[0]), MOTOR_ENCODER_COUNTS);
-pros::Motor l2_motor(abs(L_CHASSIS_PORTS[1]), MOTOR_GEARSET_18, is_reversed(L_CHASSIS_PORTS[1]), MOTOR_ENCODER_COUNTS);
-pros::Motor r2_motor(abs(R_CHASSIS_PORTS[1]), MOTOR_GEARSET_18, is_reversed(R_CHASSIS_PORTS[1]), MOTOR_ENCODER_COUNTS);
+pros::Motor l_motor(abs(L_CHASSIS_PORTS[0]), MOTOR_GEARSET_36, is_reversed(L_CHASSIS_PORTS[0]), MOTOR_ENCODER_COUNTS);
+pros::Motor r_motor(abs(R_CHASSIS_PORTS[0]), MOTOR_GEARSET_36, is_reversed(R_CHASSIS_PORTS[0]), MOTOR_ENCODER_COUNTS);
+pros::Motor l2_motor(abs(L_CHASSIS_PORTS[1]), MOTOR_GEARSET_36, is_reversed(L_CHASSIS_PORTS[1]), MOTOR_ENCODER_COUNTS);
+pros::Motor r2_motor(abs(R_CHASSIS_PORTS[1]), MOTOR_GEARSET_36, is_reversed(R_CHASSIS_PORTS[1]), MOTOR_ENCODER_COUNTS);
 pros::Imu gyro(GYRO_PORT);
 
 // Initializes pros reversing
 void
 chassis_motor_init() {
 	for(int i=0;i<MOTORS_PER_SIDE;i++) {
-		pros::Motor a(abs(L_CHASSIS_PORTS[i]), MOTOR_GEARSET_18, is_reversed(L_CHASSIS_PORTS[i]), MOTOR_ENCODER_COUNTS);
-		pros::Motor b(abs(R_CHASSIS_PORTS[i]), MOTOR_GEARSET_18, is_reversed(R_CHASSIS_PORTS[i]), MOTOR_ENCODER_COUNTS);
+		pros::Motor a(abs(L_CHASSIS_PORTS[i]), MOTOR_GEARSET_36, is_reversed(L_CHASSIS_PORTS[i]), MOTOR_ENCODER_COUNTS);
+		pros::Motor b(abs(R_CHASSIS_PORTS[i]), MOTOR_GEARSET_36, is_reversed(R_CHASSIS_PORTS[i]), MOTOR_ENCODER_COUNTS);
 	}
 }
 

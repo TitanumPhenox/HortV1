@@ -16,4 +16,8 @@ void auto_10();
 void test_auton();
 
 void solo_awp();
-void roller_change();
+void roller_change_blue();
+void roller_change_red();
+void blue_on_roller();
+void red_on_roller();
+void test_absolute_drive();

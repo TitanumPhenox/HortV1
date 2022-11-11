@@ -12,6 +12,7 @@ file, You can obtain one at http://mozilla.org/MPL/2.0/.
 int SLEW_MIN_POWER[2] = {FW_SLEW_MIN_POWER, BW_SLEW_MIN_POWER}; // Starting speed for the slew
 int SLEW_DISTANCE [2] = {FW_SLEW_DISTANCE, BW_SLEW_DISTANCE};  // Distance the robot slews at before reaching max speed
 
+
 const bool DEBUG = false;
 
 const int FORWARD  = 0;
@@ -54,7 +55,48 @@ int direction;
 ///
 // Adjust Constants
 ///
+/// \param fw
+/// \param bw
+
+void gyro_turning(float left_range, float right_range, bool negative, bool direction) {
+    int posneg;
+    if (negative == true) {
+        posneg = -1;
+    } else {
+        posneg = 1;
+    };
+
+    if (direction == true) {
+        while (gyro.get_heading() < (left_range - 75) || gyro.get_heading() > (right_range - 75)) {
+            set_motors_left(12000 * posneg);
+        }
+        while (gyro.get_heading() < left_range || gyro.get_heading() > right_range) {
+            set_motors_left(6000 * posneg);
+        }
+
+        /*
+        for (int i = 1; gyro.get_heading() < left_range || gyro.get_heading() > right_range; i++) {
+            set_motors_left((12000 - (i * 300)) * posneg);
+        }
+         */
+    } else {
+        while (gyro.get_heading() < (left_range - 60) || gyro.get_heading() > (right_range - 60)) {
+            set_motors_right(12000 * posneg);
+        }
+
+        while (gyro.get_heading() < left_range || gyro.get_heading() > right_range) {
+            set_motors_right(6000 * posneg);
+        }
+
+        /*
+        for (int i = 1; gyro.get_heading() < left_range || gyro.get_heading() > right_range; i++) {
+            set_motors_right((12000 - (i * 300)) * posneg);
+        }
+         */
+    }
+};
 void
+
 set_slew_min_power(int fw, int bw) {
 	SLEW_MIN_POWER[FORWARD]  = fw;
 	SLEW_MIN_POWER[BACKWARD] = bw;
@@ -171,7 +213,7 @@ int active_drive_type = drive;
 bool heading_on = false;
 float l_target_encoder, r_target_encoder;
 float l_start, r_start;
-int max_speed = -55;
+int max_speed = 0;
 float gyro_target = 0;
 // Slew variables
 int l_x_intercept, r_x_intercept;
@@ -567,15 +609,15 @@ void set_motors_drive(int voltage) {
 void set_motors_left(int voltage) {
     l_motor.move_voltage(-voltage);
     l2_motor.move_voltage(-voltage);
-    r_motor.move_voltage(voltage);
-    r2_motor.move_voltage(voltage);
+    r_motor.move_voltage(-voltage);
+    r2_motor.move_voltage(-voltage);
 }
 
 void set_motors_right(int voltage) {
     l_motor.move_voltage(voltage);
     l2_motor.move_voltage(voltage);
-    r_motor.move_voltage(-voltage);
-    r2_motor.move_voltage(-voltage);
+    r_motor.move_voltage(voltage);
+    r2_motor.move_voltage(voltage);
 }
 
 void mogo_auton() {

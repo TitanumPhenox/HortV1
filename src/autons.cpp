@@ -3,6 +3,7 @@
 #include "Intake.h"
 #include "pneumatics.h"
 #include "rollboy.h"
+#include "auton_voids.h"
 
 const int DRIVE_SPEED = 110;
 const int TURN_SPEED  = 90;
@@ -285,29 +286,135 @@ pros::delay(30000);
 pneumatic_drop();
 
 }
-void roller_change() {
-    set_motors_drive(1000*1000);//goes forward
+void roller_change_blue() {
+    set_motors_drive(10000);//goes forward
     pros::delay(250);
-    /*
-    r_motor.move(1000); //turns right
-    r2_motor.move(1000); //turns right
-    pros::delay(400);
-    set_motors_drive(1000); //goes forward
+    set_motors_drive(0);
+    pros::delay(10);
+    tear_drive_position();
+    while (r_motor.get_position() <90 || r_motor.get_position() > 95){
+        r_motor.move(10000);
+        r2_motor.move(10000);
+        l_motor.move(-10000);
+        l2_motor.move(-10000);
+        pros::delay(10);
+    }
+    set_motors_drive(0);
+    pros::delay(10);
+    set_motors_drive(10000);//goes forward after turn
+    pros::delay(250);
+    set_motors_drive(0);
+    pros::delay(10);
+    tear_drive_position();
+    while (l_motor.get_position() <-90 || l_motor.get_position() >-85){
+        l_motor.move(10000);
+        l2_motor.move(10000);
+        r_motor.move(-10000);
+        r2_motor.move(-10000);
+        pros::delay(10);
+
+    }
+    set_motors_drive(0);
+    pros::delay(10);
+    set_motors_drive(-10000);//goes forward
+    pros::delay(150);
+    set_motors_drive(0);
+    pros::delay(10);
+    roll_son(200);
+    pros::delay(500);
+    set_motors_drive(10000);
     pros::delay(100);
-    l_motor.move(1000);  //turns left to get roller
-    l2_motor.move(1000);
-    pros::delay(400);
-    roll_son(200); //motor spins roller to the color of our side
-    pros::delay(100);
-    set_motors_drive(400); //goes forward after doing roller
-    pros::delay(100);
-    set_motors_drive(-200); // gets backed up a little bit
-    pros::delay(200);
-    set_take(600); //intake runs
-    pros::delay(4000);
-     */
+    set_motors_drive(0);
+    pros::delay(10);
 
 }
+
+void roller_change_red() {
+    set_motors_drive(10000);//goes forward
+    pros::delay(100);
+    set_motors_drive(0);
+    pros::delay(10);
+    set_motors_right(10000);
+    pros::delay(250*2);
+    set_motors_drive(0);
+    pros::delay(10);
+    set_motors_drive(10000);//goes forward
+    pros::delay(250*2.7);
+    set_motors_drive(0);
+    pros::delay(10);
+    set_motors_right(-10000);
+    pros::delay(250*2);
+    set_motors_drive(0);
+    pros::delay(10);
+    set_motors_drive(-10000);//goes forward
+    pros::delay(250*1.1);
+    set_motors_drive(0);
+    pros::delay(10);
+    roll_son(200);
+    pros::delay(210);
+    roll_son(0);
+    pros::delay(100);
+    set_motors_drive(10000);
+    pros::delay(100);
+    set_motors_drive(0);
+    pros::delay(10);
+}
+
+void blue_on_roller(){
+    set_motors_drive(-10000);
+    pros::delay(100);
+    set_motors_drive(0);
+    pros::delay(10);
+    roll_son(200);
+    pros::delay(200);
+    roll_son(0);
+    pros::delay(10);
+    set_motors_drive(10000);
+    pros::delay(200);
+    set_motors_drive(0);
+    pros::delay(10);
+
+}
+
+void red_on_roller(){
+    set_motors_drive(-10000);
+    pros::delay(100);
+    set_motors_drive(0);
+    pros::delay(10);
+    roll_son(200);
+    pros::delay(-200);
+    roll_son(0);
+    pros::delay(10);
+    set_motors_drive(10000);
+    pros::delay(200);
+    set_motors_drive(0);
+    pros::delay(10);
+
+}
+
+void second_roller(){
+    set_motors_drive(-10000);
+    roll_son(-200);
+    pros::delay(250);
+    set_motors_right(-10000);
+
+}
+
+void test_absolute_drive(){
+    set_motors_drive(10000);
+    pros::delay(500);
+    set_motors_drive(0);
+    pros::delay(10);
+    tare_gyro();
+    pros::delay(250);
+    while (gyro.get_heading() < 220 || gyro.get_heading() > 222) {
+        set_motors_left(10000);
+    }
+    set_motors_drive(0);
+    pros::delay(10);
+
+}
+
 
 
 
