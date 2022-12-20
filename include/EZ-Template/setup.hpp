@@ -16,7 +16,7 @@ const int MOTORS_PER_SIDE = 2; // Motors per side of drive
 
 // Make the port negative if it's reversed
 const int  L_CHASSIS_PORTS[MOTORS_PER_SIDE] = {17, 6}; // Ports, the first number will be used for sensing
-const int  R_CHASSIS_PORTS[MOTORS_PER_SIDE] = {7, 8}; // Ports, the first number will be used for sensing
+const int  R_CHASSIS_PORTS[MOTORS_PER_SIDE] = {19, 13}; // Ports, the first number will be used for sensing
 
 // IMU Port
 #define GYRO_PORT 16
@@ -30,8 +30,8 @@ const int  R_CHASSIS_PORTS[MOTORS_PER_SIDE] = {7, 8}; // Ports, the first number
 // Remember that 4" wheels are actually 4.125"!
 // If you tune an inch conversion not listed below, tell us you have it with a pull request!
 const float WHEEL_DIA = 4.125; // Have the robot go 8ft forward and adjust this value until the robot actually goes 8ft
-const float CART_RPM	= 400;	 // Output RPM of the cart
-const float RATIO			= 1;     // External drive ratio (MUST BE DECIMAL)
+const float CART_RPM	= 800;	 // Output RPM of the cart
+const float RATIO			= 1.0;     // External drive ratio (MUST BE DECIMAL)
 // eg. if your drive is 84:36 where the 36t is powered, your RATIO would be 2.333.
 // eg. if your drive is 36:60 where the 60t is powered, your RATIO would be 0.6.
 

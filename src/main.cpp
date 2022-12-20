@@ -34,9 +34,9 @@ on_center_button() {
 	static bool pressed = false;
 	pressed = !pressed;
 	if (pressed) {
-		pros::lcd::set_text(2, "I was pressed!");
-	} else {
-		pros::lcd::clear_line(2);
+		tare_gyro();
+	} else(!imu_calibrate()) {
+        pros::lcd::set_text(7, "IMU failed to calibrate!");
 	}
 }
 
@@ -167,9 +167,7 @@ autonomous() {
     tare_gyro();
     //reset_drive_sensor();
     set_drive_brake(MOTOR_BRAKE_HOLD); // This is preference to what you like to drive on
-    pros::c::motor_set_brake_mode(11,MOTOR_BRAKE_HOLD);
-    pros::c::motor_set_brake_mode(20,MOTOR_BRAKE_HOLD);
-    pros::c::motor_set_brake_mode(5,MOTOR_BRAKE_HOLD);
+    set_all_drive_brakes();
 
     auto_select(true);
 }
@@ -195,9 +193,7 @@ opcontrol() {
 	//drive_pid.suspend();
 	//reset_drive_sensor();
 	set_drive_brake(MOTOR_BRAKE_HOLD); // This is preference to what you like to drive on
-    pros::c::motor_set_brake_mode(11,MOTOR_BRAKE_HOLD);
-    pros::c::motor_set_brake_mode(20,MOTOR_BRAKE_HOLD);
-    pros::c::motor_set_brake_mode(5,MOTOR_BRAKE_HOLD);
+    set_all_drive_brakes();
 
 
     while (true) {

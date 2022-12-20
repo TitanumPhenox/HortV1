@@ -4,9 +4,9 @@
 
 #include "../include/Intake.h"
 #include "main.h"
+int take_port = 18;
 
-
-pros::Motor take1(9, MOTOR_GEARSET_6, false, MOTOR_ENCODER_DEGREES);
+pros::Motor take1(take_port, MOTOR_GEARSET_6, false, MOTOR_ENCODER_DEGREES);
 //pros::Motor take2(3, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES);
 
 void set_take(int input)  {

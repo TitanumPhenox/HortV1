@@ -149,6 +149,7 @@ auto_2() {
 
 
 
+
 ///
 // Combining Turn + Drive
 ///
@@ -361,20 +362,51 @@ void roller_change_red() {
 }
 
 void blue_on_roller(){
-    set_motors_drive(-10000);
-    pros::delay(100);
+    set_motors_drive(10000);
+    pros::delay(560);
     set_motors_drive(0);
     pros::delay(10);
+    while (gyro.get_heading() < 315 || gyro.get_heading() > 330) {
+        set_motors_left(10000);
+    }
+    set_motors_drive(0);
+    pros::delay(10);
+    set_motors_drive(-10000);
+    pros::delay(750);
+    set_motors_drive(0);
+    pros::delay(10);
+    while (gyro.get_heading() < 333 || gyro.get_heading() > 353) {
+        set_motors_right(10000);
+    }
+    set_motors_drive(0);
+    pros::delay(10);
+    set_motors_drive(-6500);
+    pros::delay(320);
+    set_motors_drive(0);
     roll_son(200);
     pros::delay(200);
     roll_son(0);
     pros::delay(10);
-    set_motors_drive(10000);
+    set_motors_drive(5500);
     pros::delay(200);
     set_motors_drive(0);
     pros::delay(10);
+    while (gyro.get_heading() < 75 || gyro.get_heading() > 88) {
+        set_motors_right(10000);
+    }
+    set_motors_drive(0);
+    pros::delay(10);
+    set_motors_drive(-10000);
+    pros::delay(500);
+    set_motors_drive(0);
+    pros::delay(10);
+    set_catapult(200);
+    pros::delay(500);
+    set_catapult(0);
+    pros::delay(10);
 
 }
+
 
 void red_on_roller(){
     set_motors_drive(-10000);
@@ -382,7 +414,7 @@ void red_on_roller(){
     set_motors_drive(0);
     pros::delay(10);
     roll_son(200);
-    pros::delay(-200);
+    pros::delay(200);
     roll_son(0);
     pros::delay(10);
     set_motors_drive(10000);
