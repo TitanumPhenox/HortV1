@@ -34,8 +34,8 @@ on_center_button() {
 	static bool pressed = false;
 	pressed = !pressed;
 	if (pressed) {
-		tare_gyro();
-	} else(!imu_calibrate()) {
+		imu_calibrate();
+	} else(!imu_calibrate()); {
         pros::lcd::set_text(7, "IMU failed to calibrate!");
 	}
 }
@@ -205,7 +205,6 @@ opcontrol() {
         manual_take();
         //catapult_control();
         catapult_control_manual();
-        rollboy_manuel();
 		pros::delay(DELAY_TIME);
 
 	}

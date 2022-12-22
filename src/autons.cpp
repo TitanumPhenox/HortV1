@@ -5,6 +5,7 @@
 #include "rollboy.h"
 #include "auton_voids.h"
 
+extern int max_intake_speed;
 const int DRIVE_SPEED = 110;
 const int TURN_SPEED  = 90;
 const int SWING_SPEED = 90;
@@ -433,19 +434,13 @@ void second_roller(){
 }
 
 void test_absolute_drive(){
-    set_motors_drive(10000);
-    pros::delay(500);
-    set_motors_drive(0);
-    pros::delay(10);
-    tare_gyro();
-    pros::delay(250);
-    while (gyro.get_heading() < 220 || gyro.get_heading() > 222) {
-        set_motors_left(10000);
-    }
-    set_motors_drive(0);
-    pros::delay(10);
+    drive_motors(1000,50);
+    imu_turn_right(30,50);
+    catapult_shoot(150,100);
+    intake_go(max_intake_speed,100);
 
 }
+
 
 
 
