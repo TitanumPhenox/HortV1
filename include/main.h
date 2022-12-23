@@ -45,9 +45,7 @@
 #include "EZ-Template/joystick_control.hpp"
 #include "EZ-Template/auton_drive_functions.hpp"
 // More includes here...
-#include "tilter.hpp"
-#include "mogo.hpp"
-#include "lift.hpp"
+
 #include "autons.hpp"
 
 

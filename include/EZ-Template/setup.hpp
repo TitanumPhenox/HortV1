@@ -12,11 +12,11 @@ const int DELAY_TIME = 10;
 ///
 // Port Setup
 ///
-const int MOTORS_PER_SIDE = 2; // Motors per side of drive
+const int MOTORS_PER_SIDE = 3; // Motors per side of drive
 
 // Make the port negative if it's reversed
-const int  L_CHASSIS_PORTS[MOTORS_PER_SIDE] = {17, 6}; // Ports, the first number will be used for sensing
-const int  R_CHASSIS_PORTS[MOTORS_PER_SIDE] = {19, 13}; // Ports, the first number will be used for sensing
+const int  L_CHASSIS_PORTS[MOTORS_PER_SIDE] = {17, 6,8}; // Ports, the first number will be used for sensing
+const int  R_CHASSIS_PORTS[MOTORS_PER_SIDE] = {19, 13,9}; // Ports, the first number will be used for sensing
 
 // IMU Port
 #define GYRO_PORT 16
@@ -61,7 +61,7 @@ const bool ARCADE_TANK_TOGGLE = false; // True is yes, false is no
 
 ///
 // Input Curve Setup
-//  -adds an input curve to the joysticks, here https://www.desmos.com/calculator/rcfjjg83zx
+//  -adds an input curve to the joysticks, here c
 ///
 
 const bool  CURVE_TYPE         = true;  // true is red, false is blue in the demos link above

@@ -595,169 +595,31 @@ void set_motors_stop() {
     l2_motor.move_voltage(0);
     r_motor.move_voltage(0);
     r2_motor.move_voltage(0);
-    set_mogo(0);
-    set_tilter(0);
-    set_lift(0);
+
 }
 
 void set_motors_drive(int voltage) {
     l_motor.move_voltage(voltage);
     l2_motor.move_voltage(voltage);
+    l3_motor.move_voltage(voltage);
     r_motor.move_voltage(-voltage);
     r2_motor.move_voltage(-voltage);
+    r3_motor.move_voltage(-voltage);
 }
 void set_motors_left(int voltage) {
     l_motor.move_voltage(-voltage);
     l2_motor.move_voltage(-voltage);
+    l3_motor.move_voltage(-voltage);
     r_motor.move_voltage(-voltage);
     r2_motor.move_voltage(-voltage);
+    r3_motor.move_voltage(-voltage);
 }
 
 void set_motors_right(int voltage) {
     l_motor.move_voltage(voltage);
     l2_motor.move_voltage(voltage);
+    l3_motor.move_voltage(voltage);
     r_motor.move_voltage(voltage);
     r2_motor.move_voltage(voltage);
-}
-
-void mogo_auton() {
-    set_mogo(-127);
-    pros::delay(2300);
-    //Drives into the Mobile goal
-    set_mogo(0);
-    set_motors_drive(8000);
-    pros::delay(500);
-    set_motors_stop();
-    set_motors_drive(4000);
-    pros::delay(800);
-    set_motors_stop();
-    //Retracts the Mogo and drives backwards
-    set_mogo(127);
-    pros::delay(1500);
-    set_mogo(0);
-    set_motors_drive(-6000);
-    pros::delay(750);
-    set_motors_stop();
-    pros::delay(300);
-    set_motors_drive(12000);
-    pros::delay(400);
-    set_motors_stop();
-}
-
-void tilter_auton() {
-    set_tilter(-100);
-    pros::delay(400);
-    set_tilter(45);
-    pros::delay(800);
-    set_tilter(-100);
-    pros::delay(400);
-    set_tilter(45);
-    pros::delay(800);
-    set_tilter(0);
-}
-
-void skills_auton() {
-    float goal_heading;
-    float forward_heading;
-    float turn_left_heading;
-    float turn_left_goal_heading;
-
-    if (pros::c::imu_get_heading(12) < goal_heading) {
-        while (pros::c::imu_get_heading(12) < goal_heading) {
-            set_motors_right(8000);
-        }
-    } else if (pros::c::imu_get_heading(12) > goal_heading) {
-        while (pros::c::imu_get_heading(12) > goal_heading) {
-            set_motors_left(8000);
-        }
-    } else {
-        set_motors_stop();
-    }
-
-    set_mogo(-127);
-    pros::delay(2300);
-    set_mogo(0);
-    set_motors_drive(8000);
-    pros::delay(500);
-    set_motors_stop();
-    set_motors_drive(4000);
-    pros::delay(800);
-    set_motors_stop();
-    //Retracts the Mogo
-    set_mogo(127);
-    pros::delay(1500);
-    set_mogo(0);
-
-    if (pros::c::imu_get_heading(12) < forward_heading) {
-        while (pros::c::imu_get_heading(12) < forward_heading) {
-            set_motors_right(8000);
-        }
-    } else if (pros::c::imu_get_heading(12) > forward_heading) {
-        while (pros::c::imu_get_heading(12) > forward_heading) {
-            set_motors_left(8000);
-        }
-    } else {
-        set_motors_stop();
-    }
-
-    set_motors_drive(12000);
-    set_motors_stop();
-
-    if (pros::c::imu_get_heading(12) < turn_left_heading) {
-        while (pros::c::imu_get_heading(12) < turn_left_heading) {
-            set_motors_right(8000);
-        }
-    } else if (pros::c::imu_get_heading(12) > turn_left_heading) {
-        while (pros::c::imu_get_heading(12) > turn_left_heading) {
-            set_motors_left(8000);
-        }
-    } else {
-        set_motors_stop();
-    }
-}
-
-void yellow_mogo_auton() {
-    float goal_heading;
-    float forward_heading;
-
-    if (pros::c::imu_get_heading(12) < goal_heading) {
-        while (pros::c::imu_get_heading(12) < goal_heading) {
-            set_motors_right(8000);
-        }
-    } else if (pros::c::imu_get_heading(12) > goal_heading) {
-        while (pros::c::imu_get_heading(12) > goal_heading) {
-            set_motors_left(8000);
-        }
-    } else {
-        set_motors_stop();
-    }
-
-    set_mogo(-127);
-    pros::delay(2300);
-    set_mogo(0);
-    set_motors_drive(8000);
-    pros::delay(500);
-    set_motors_stop();
-    set_motors_drive(4000);
-    pros::delay(800);
-    set_motors_stop();
-    //Retracts the Mogo
-    set_mogo(127);
-    pros::delay(1500);
-    set_mogo(0);
-    set_motors_drive(-6000);
-    pros::delay(1000);
-
-    if (pros::c::imu_get_heading(12) < forward_heading) {
-        while (pros::c::imu_get_heading(12) < forward_heading) {
-            set_motors_right(8000);
-        }
-    } else if (pros::c::imu_get_heading(12) > forward_heading) {
-        while (pros::c::imu_get_heading(12) > forward_heading) {
-            set_motors_left(8000);
-        }
-    } else {
-        set_motors_stop();
-    }
-
+    r3_motor.move_voltage(voltage);
 }

@@ -50,7 +50,5 @@ void set_motors_drive(int voltage);
 void set_motors_stop();
 void set_motors_left(int voltage);
 void set_motors_right(int voltage);
-void mogo_auton();
-void tilter_auton();
-void skills_auton();
+
 

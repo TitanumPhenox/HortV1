@@ -5,7 +5,7 @@
 #include "../include/Intake.h"
 #include "main.h"
 int take_port = 18;
-int max_intake_speed = 400;
+int max_intake_speed = 600;
 pros::Motor take1(take_port, MOTOR_GEARSET_6, false, MOTOR_ENCODER_DEGREES);
 //pros::Motor take2(3, MOTOR_GEARSET_18, false, MOTOR_ENCODER_DEGREES);
 

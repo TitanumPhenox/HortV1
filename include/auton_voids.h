@@ -8,7 +8,6 @@
 void tear_drive_position();
 void move_drive_absolute(int position, int voltage);
 void zero_pos_drive(int position);
-void set_breaks();
 void set_all_drive_brakes();
 void imu_turn_left(int angle1, int angle2);
 void imu_turn_right(int angle1, int angle2);

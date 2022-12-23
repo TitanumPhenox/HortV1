@@ -2,7 +2,6 @@
 #include "intake.h"
 #include "shotboy.h"
 #include "pneumatics.h"
-#include "rollboy.h"
 #include "auton_voids.h"
 /**
  * Disables all tasks.
@@ -15,9 +14,6 @@ void disable_all_tasks() {
 
 void
 tare_sensors() {
-	zero_mogo();
-	zero_tilter();
-	zero_lift();
     tare_gyro();
 }
 
@@ -66,7 +62,7 @@ auto_select(bool is_auton) {
 			if (is_auton) roller_change_red();
 			break;
         case 3: // Auto 3
-            pros::lcd::set_text(2, "absolute drive testing");
+            pros::lcd::set_text(2, "testing");
             if (is_auton) test_absolute_drive();
             break;
 
@@ -190,20 +186,13 @@ autonomous() {
 
 void
 opcontrol() {
-	//drive_pid.suspend();
-	//reset_drive_sensor();
-	set_drive_brake(MOTOR_BRAKE_HOLD); // This is preference to what you like to drive on
     set_all_drive_brakes();
 
 
     while (true) {
         arcadeDrive();
         pneumatic_press();
-		//mogo_control();
-		//tilter_control_manuel();
-		//lift_control_manuel();
         manual_take();
-        //catapult_control();
         catapult_control_manual();
 		pros::delay(DELAY_TIME);
 
