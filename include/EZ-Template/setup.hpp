@@ -61,7 +61,7 @@ const bool ARCADE_TANK_TOGGLE = false; // True is yes, false is no
 
 ///
 // Input Curve Setup
-//  -adds an input curve to the joysticks, here c
+//  -adds an input curve to the joysticks, here https://www.desmos.com/calculator/lxanbmeulp
 ///
 
 const bool  CURVE_TYPE         = true;  // true is red, false is blue in the demos link above
