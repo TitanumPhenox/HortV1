@@ -593,9 +593,10 @@ wait_until(int input) {
 void set_motors_stop() {
     l_motor.move_voltage(0);
     l2_motor.move_voltage(0);
+    l3_motor.move_voltage(0);
     r_motor.move_voltage(0);
     r2_motor.move_voltage(0);
-
+    r3_motor.move_voltage(0);
 }
 
 void set_motors_drive(int voltage) {

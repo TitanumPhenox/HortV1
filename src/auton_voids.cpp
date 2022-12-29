@@ -42,14 +42,14 @@ void imu_turn_left(int angle1, int angle2){
 while (gyro.get_heading() < angle1 || gyro.get_heading() > angle2) {
 set_motors_left(10000);
 }
-set_all_drive_brakes();
+    set_motors_drive(0);
 pros::delay(10);
 }
 void imu_turn_right(int angle1, int angle2){
     while (gyro.get_heading() < angle1 || gyro.get_heading() > angle2) {
         set_motors_right(10000);
     }
-    set_all_drive_brakes();
+    set_motors_drive(0);
     pros::delay(10);
 }
 void drive_motors(int power, int delay){
